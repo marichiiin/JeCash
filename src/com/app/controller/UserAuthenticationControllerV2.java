@@ -1,4 +1,4 @@
-package com.app.controller;
+        package com.app.controller;
 
 import com.app.model.Users;
 import com.app.view.UserAuthenticationView;
@@ -50,8 +50,9 @@ public class UserAuthenticationControllerV2 {
                 authenticationSuccess = true; //set authenticationSuccess to true once verification complete.
                 break;
             case 2:
-                //registerMenu.register();
-                System.out.println("Register");
+                // Call the UserRegistrationController to handle user registration
+                UserRegistrationController registrationController = new UserRegistrationController(new Users(), new UserAuthenticationView());
+                registrationController.startRegistration();  // Start the registration process
                 break;
             case 3:
                 //System.out.println("Program exited");

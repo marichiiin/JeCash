@@ -78,5 +78,10 @@ public class Users {
         this.balance = balance;
     }
 
+    public boolean addUser(Users newUser) {
+        UsersDAO usersDAO = new UsersDAOImplV2();  // Use DAO to handle database interaction
+        return usersDAO.insertUser(newUser);  // Call the insertUser method of the DAO to add the user
+    }
+
 
 }

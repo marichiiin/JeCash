@@ -1,6 +1,7 @@
 package com.app.dao.impl;
 
 import com.app.dao.UsersDAO;
+import com.app.model.Users;
 import com.app.util.DbConnection;
 import com.app.util.QueryConstants;
 
@@ -68,6 +69,24 @@ public class UsersDAOImplV2 extends DbConnection implements UsersDAO {
         }
 
         return false;
+    }
+    @Override
+    public boolean insertUser(Users newUser) {
+        String insertQuery = "INSERT INTO tblusers (Name, Mobile_Number, MPIN, Balance) VALUES (?, ?, ?, ?)";
+
+        try {
+            PreparedStatement ps = connection.prepareStatement(insertQuery);
+            ps.setString(1, newUser.getName());  // Set the user's name
+            ps.setLong(2, newUser.getMobileNumber());  // Set the user's mobile number
+            ps.setInt(3, newUser.getMPIN());  // Set the user's MPIN
+            ps.setInt(4, newUser.getBalance());  // Set the initial balance (e.g., 0)
+
+            int rowsAffected = ps.executeUpdate();  // Execute the insert query
+            return rowsAffected > 0;  // Return true if the user was successfully inserted
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return false;  // Return false if there was an error
+        }
     }
 
 }

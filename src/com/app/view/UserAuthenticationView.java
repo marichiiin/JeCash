@@ -43,8 +43,9 @@ public class UserAuthenticationView {
         System.out.println("MPIN is incorrect! Please try again!\n");
     }
 
-    public void displayRegistrationMenu(){
-
+    public void displayRegistrationMenu() {
+        System.out.println("Welcome to the registration page!");
+        System.out.println("Please enter the following details to create a new account:");
     }
 
 

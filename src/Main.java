@@ -9,7 +9,7 @@ public class Main {
         //Run the program:
 
         UserAuthenticationControllerV2 uaController = new UserAuthenticationControllerV2();
-        MainMenuController mMController = new MainMenuController();
+        MainMenuController mMController = new MainMenuController(null, null);
 
         MainController mainController = new MainController(uaController, mMController);
         
